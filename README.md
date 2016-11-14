@@ -56,4 +56,6 @@ Keep `Auth` blank to request directly otherwise use `http://ip:port/?Auth=[Auth]
 
 This is use for windows and haven't tested on other os.
 
+Task will gone when td is down.
+
 When there is no TaskSuffix.Oops.
