@@ -23,7 +23,7 @@ func main() {
 
 	conf, err := useConf(*confFile)
 	if err != nil {
-		panic("Config error")
+		panic("Config error :"+ err.Error())
 	}
 
 	log.SetLevel(log.DebugLevel)

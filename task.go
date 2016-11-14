@@ -15,6 +15,7 @@ import (
 	"errors"
 	"encoding/json"
 	"os/exec"
+	"syscall"
 )
 
 type Task struct {
@@ -194,7 +195,10 @@ func (this *Task) Run() error {
 		execStr := fmt.Sprintf("%s%s-%d.%s", this.TaskPath, this.TaskName, tarVer, this.TaskSuffix)
 		log.Debugf("Will start process : %s", execStr)
 		attr := &os.ProcAttr{
-			Files: []*os.File{os.Stdin, nil, nil},
+			Files: []*os.File{nil, nil, nil},
+			Sys: &syscall.SysProcAttr{
+				CreationFlags:syscall.CREATE_NEW_PROCESS_GROUP,
+			},
 		}
 
 		argv := append([]string{execStr}, this.TaskArgs...)

@@ -6,7 +6,8 @@
       "TaskPath": "d:/",
       "TaskArgs": [
         "-name","Json",
-        "-department","WhiteHouse"
+        "-department","WhiteHouse",
+        "-port","10110"
       ],
       "EtcdUrl": "http://127.0.0.1:2379",
       "UpdateCheckUrl": "http://localhost:8111/update"
@@ -16,8 +17,9 @@
       "TaskSuffix": "exe",
       "TaskPath": "d:/",
       "TaskArgs": [
-        "-name","Json",
-        "-department","WhiteHouse"
+        "-name","July",
+        "-department","Aodin",
+        "-port","10111"
       ],
       "EtcdUrl": "http://127.0.0.1:2379",
       "UpdateCheckUrl": "http://localhost:8111/update"
