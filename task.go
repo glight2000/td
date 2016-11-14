@@ -50,7 +50,7 @@ func (this *Task) StartDeamon() {
 		log.Debugf("Find process by pid %d error : %s", pId, err.Error())
 
 		// start first time
-		err := this.Exec()
+		err := this.Run()
 		if err != nil {
 			log.Errorf("Exec error : %s", err.Error())
 			this.CurrentProcess = nil
@@ -66,7 +66,7 @@ func (this *Task) StartDeamon() {
 		if state.Exited() {
 			//process terminated
 			log.Debugf("Process %s(ver %d) terminated. try to start...", this.TaskName, this.CurrentVersion)
-			err = this.Exec()
+			err = this.Run()
 			if err != nil {
 				log.Errorf("Exec error : %s", err.Error())
 				this.CurrentProcess = nil
@@ -173,7 +173,7 @@ func (this *Task) ConnectEtcd() error {
 	return nil
 }
 
-func (this *Task) Exec() error {
+func (this *Task) Run() error {
 	//find latest one
 	list, err := ListVersionsInPath(this.TaskPath, this.TaskName, this.TaskSuffix)
 	if err != nil {
