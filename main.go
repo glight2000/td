@@ -7,6 +7,7 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/kataras/iris"
 	"net/http"
+	"flag"
 )
 
 type Config struct {
@@ -17,7 +18,10 @@ type Config struct {
 }
 
 func main() {
-	conf, err := useConf()
+	confFile := flag.String("c", "", "config file")
+	flag.Parse()
+
+	conf, err := useConf(*confFile)
 	if err != nil {
 		panic("Config error")
 	}
@@ -53,10 +57,10 @@ func main() {
 	iris.Listen(conf.Listen)
 }
 
-func useConf() (*Config, error) {
+func useConf(file string) (*Config, error) {
 	conf := new(Config)
 
-	f, err := os.Open("conf.json")
+	f, err := os.Open(file)
 	if err != nil {
 		log.Debugf("conf file error : %s \n", err.Error())
 		return conf, err

@@ -64,8 +64,8 @@ func (this *Task) StartDeamon() {
 			log.Errorf("Get Process state error : %s", err.Error())
 		}
 		if state.Exited() {
-			//进程退出
-			log.Debugf("Process %s(ver %d) gone. try to start...", this.TaskName, this.CurrentVersion)
+			//process terminated
+			log.Debugf("Process %s(ver %d) terminated. try to start...", this.TaskName, this.CurrentVersion)
 			err = this.Exec()
 			if err != nil {
 				log.Errorf("Exec error : %s", err.Error())
@@ -194,7 +194,7 @@ func (this *Task) Exec() error {
 		execStr := fmt.Sprintf("%s%s-%d.%s", this.TaskPath, this.TaskName, tarVer, this.TaskSuffix)
 		log.Debugf("Will start process : %s", execStr)
 		attr := &os.ProcAttr{
-			Files: []*os.File{os.Stdin, os.Stdout, os.Stderr},
+			Files: []*os.File{os.Stdin, nil, nil},
 		}
 
 		argv := append([]string{execStr}, this.TaskArgs...)
@@ -212,6 +212,9 @@ func (this *Task) Exec() error {
 	return nil
 }
 
+/**
+A high level excute with exec package
+ */
 func (this *Task) Exec1() error {
 	//find latest one
 	list, err := ListVersionsInPath(this.TaskPath, this.TaskName, this.TaskSuffix)
