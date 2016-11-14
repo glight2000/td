@@ -1,4 +1,4 @@
 *.exe
-.idea
-.old
-.test
+/.idea/*
+/old/*
+/test/*

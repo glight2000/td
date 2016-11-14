@@ -1,0 +1,29 @@
+{
+  "Tasks": [
+    {
+      "TaskName": "testa",
+      "TaskSuffix": "exe",
+      "TaskPath": "d:/",
+      "TaskArgs": [
+        "-name","Json",
+        "-department","WhiteHouse"
+      ],
+      "EtcdUrl": "http://127.0.0.1:2379",
+      "UpdateCheckUrl": "http://localhost:8111/update"
+    },
+    {
+      "TaskName": "testb",
+      "TaskSuffix": "exe",
+      "TaskPath": "d:/",
+      "TaskArgs": [
+        "-name","Json",
+        "-department","WhiteHouse"
+      ],
+      "EtcdUrl": "http://127.0.0.1:2379",
+      "UpdateCheckUrl": "http://localhost:8111/update"
+    }
+  ],
+  "LogFile": "",
+  "Listen": ":9010",
+  "Auth": "abc"
+}
