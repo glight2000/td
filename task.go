@@ -26,8 +26,8 @@ type Task struct {
 	EtcdUrl        string `json:"EtcdUrl"`
 	UpdateCheckUrl string `json:"UpdateCheckUrl"`
 
-	CurrentVersion int `json:"-"`
-	CurrentProcess *os.Process `json:"-"`
+	CurrentVersion int `json:"CurrentVersion,omitempty"`
+	CurrentProcess *os.Process `json:"CurrentProcess,omitempty"`
 }
 
 func (this *Task) StartDeamon() {
