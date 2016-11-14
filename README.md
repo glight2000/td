@@ -52,10 +52,23 @@ Keep `Auth` blank to request directly otherwise use `http://ip:port/?Auth=[Auth]
 ## Start
 `td -c /usr/local/tdconf.json`
 
+## Update Notify
+
+Use etcd watcher.
+
+Put value like:
+```JSON
+{
+  "appname": "testb",
+  "version": 4,
+  "md5sum": "757A3E505A38FE482729E33923637597",
+  "updateurl": "http://127.0.0.1:8080/test.exe"
+}
+```
+`appname` `version` `md5sum` will be checked.
+
 ## Known issues
 
 This is use for windows and haven't tested on other os.
-
-Task will gone when td is down.
 
 When there is no TaskSuffix.Oops.
