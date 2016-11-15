@@ -23,7 +23,6 @@ Http interface to get the status of tasks. Oh it's ugly now :).
         "-department","WhiteHouse"
       ],
       "EtcdUrl": "http://127.0.0.1:2379",
-      "UpdateCheckUrl": "http://localhost:8111/update"
     },
     {
       "TaskName": "testb",
@@ -34,7 +33,6 @@ Http interface to get the status of tasks. Oh it's ugly now :).
         "-department","WhiteHouse"
       ],
       "EtcdUrl": "http://127.0.0.1:2379",
-      "UpdateCheckUrl": "http://localhost:8111/update"
     }
   ],
   "LogFile": "",
